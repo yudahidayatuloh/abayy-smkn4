@@ -1,0 +1,69 @@
+{{ template "layout" .}}
+
+{{ define "main" }}
+
+    <div class="vh-100">
+        <img src="https://web-smkn4.vercel.app/_nuxt/pembuka.C-Cl3k6R.jpg" 
+            class=" object-fit-cover" 
+            alt="Gambar Fullscreen">
+    </div>
+
+    <div class="container mx-auto p-6">
+        <div class="text-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 rounded-lg bg-white shadow-lg mt-10 overflow-hidden">
+                <div>
+                    <img class="w-full h-full object-cover" src="https://aqinbfwyqxlynlxybhod.supabase.co/storage/v1/object/public/img_galeri/jalan_sehat.JPG" alt="Foto Sekolah">
+                </div>
+
+                <div class="my-auto px-10 py-8 text-start">
+                    <h1 class="font-bold text-3xl lg:text-4xl mb-4">SMK Negeri 4 Tasikmalaya</h1>
+                    <p class="text-gray-700">
+                        SMK Negeri 4 Tasikmalaya menghasilkan tamatan yang Cerdas, Akhlak mulia, Kreatif, Aktif, Produktif, 
+                        dengan berlandaskan Iman dan Taqwa (CAKAP BERIMTAQ).
+                    </p>
+
+                    <div class="grid grid-cols-3 gap-6 mt-12 text-center">
+                        <div>
+                            <h2 class="font-bold text-4xl mb-2">{{ .JumlahSiswa }} +</h2>
+                            <p class="text-gray-600 text-sm">Siswa Aktif</p>
+                        </div>
+                        <div>
+                            <a href="/eskul">
+                                <h2 class="font-bold text-4xl mb-2">{{ .JumlahEskul }}</h2>
+                                <p class="text-gray-600 text-sm">Ekstrakulikuler</p>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#Jurusan">
+                            <h2 class="font-bold text-4xl mb-2">{{ .JumlahJurusan }}</h2>
+                            <p class="text-gray-600 text-sm">Program Keahlian</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="Jurusan" class="pt-10">
+            <h1 class="text-4xl mx-10 mb-6 mt-20">Kompetensi Keahlian</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {{ range .Jurusan }}
+            <div class="grid grid-cols-3 bg-white  rounded-lg shadow-md overflow-hidden shadow-lg overflow-hidden hover:scale-105 transform transition duration-300">
+                <div class="flex justify-center items-center my-20">
+                    <img src="{{ .Foto }}" alt="{{ .NamaJ }}" class="w-20 h-20">
+                </div>
+                <div class="p-4 {{ .Warna }} h-full text-white col-span-2">
+                    <div class="my-20">
+                        <h2 class="text-xl font-semibold">{{ .NamaJ }}</h2>
+                        <p class="text-sm">{{ .Desc }}</p>
+                    </div>
+                </div>
+            </div>
+        {{ end }}
+        </div>
+        </div>
+    </div>
+
+{{ end }}

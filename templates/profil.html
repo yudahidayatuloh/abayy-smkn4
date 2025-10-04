@@ -1,0 +1,74 @@
+{{ template "layout" .}}
+
+{{ define "main" }}
+
+
+    <div class="container mx-auto mt-20 p-6 space-y-20">
+
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-6">Profil Sekolah</h1>
+
+        <!-- Sejarah -->
+        <div class="p-12 max-lg:hidden">
+            <h2 class="text-2xl font-semibold text-center">Sambutan Kepala Sekolah</h2>
+            <p class="text-gray-500 text-center">SMK Negeri 4 Tasikmalaya</p>
+            <div class="grid my-5 grid-cols-1 md:grid-cols-3">
+                <ul class="mt-4 space-y-2 text-gray-600 col-span-2">
+                    <li class="font-bold text-4xl mb-10">Assalamualaikum Wr Wb</li>
+                    {{ range .Profil.Sambutan }}
+                    <li>{{ . }}</li>
+                    {{ end }}
+                    <li class="font-semibold">Waalaikumsalam Wr Wb</li>
+                </ul>
+                <img src="https://smkn4tsm.netlify.app/assets/kepsek.png" alt="Foto Sekolah"
+                class="my-auto w-[70%] rounded-lg mx-auto" style="background-color: #0265af;">
+            </div>
+        </div>
+        <div class="p-12 lg:hidden">
+            <h2 class="text-4xl mx-10 mb-6 mt-5 text-center">Sambutan Kepala Sekolah</h2>
+            <p class="text-gray-500 text-center">SMK Negeri 4 Tasikmalaya</p>
+            <div class="my-5">
+                <img src="https://smkn4tsm.netlify.app/assets/kepsek.png" alt="Foto Sekolah"
+                class="my-auto w-[70%] rounded-lg mx-auto" style="background-color: #0265af;">
+                <ul class=" mt-4 space-y-2 text-gray-600">
+                    <li class="font-bold text-4xl mb-10">Assalamualaikum Wr Wb</li>
+                    {{ range .Profil.Sambutan }}
+                    <li>{{ . }}</li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+        <div class="px-45 max-md:px-15 p-5 bg-[#0265af] text-white">
+            <h2 class="text-4xl mx-10 mb-6 mt-5 text-center">Sejarah</h2>
+            <div class="grid my-5 grid-cols-1 md:grid-cols-3">
+                <img src="https://smkn4-web.netlify.app/_nuxt/Logo-SMK.Ba-Cc_BE.png" alt="Foto Sekolah"
+                class="my-auto w-[70%] mx-auto">
+                <p class="my-auto text-justify col-span-2 max-md:mt-10">
+                {{ .Profil.Sejarah }}
+                </p>
+            </div>
+        </div>
+
+
+        <!-- Visi -->
+        <div class="container mx-auto mt-20 p-6 space-y-20">
+            <section class="p-12">
+                <h2 class="text-4xl mx-10 mb-6 mt-5">Visi</h2>
+                <p class="mt-4 text-gray-600 leading-relaxed">{{ .Profil.Visi }}</p>
+                </section>
+
+                <!-- Misi -->
+                <section class="p-12">
+                <h2 class="text-4xl mx-10 mb-6 mt-5">Misi</h2>
+                <ul class="list-disc list-inside mt-4 space-y-2 text-gray-600 leading-relaxed">
+                    {{ range .Profil.Misi }}
+                    <li>{{ . }}</li>
+                    {{ end }}
+                </ul>
+            </section>
+
+        </div>
+    
+
+{{ end}}
