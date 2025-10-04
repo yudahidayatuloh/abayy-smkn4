@@ -10,6 +10,11 @@ import (
 
 
 func BerandaHandler(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
+		return
+	}
+
 	var jurusanAmbilWarna []models.DataJurusan
 	for _, j := range models.IsiJurusan {
 		j.Warna = utils.GetWarna(j.NamaJ)
