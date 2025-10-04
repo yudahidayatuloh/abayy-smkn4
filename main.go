@@ -9,6 +9,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", handlers.BerandaHandler)
+	http.HandleFunc("/beranda", handlers.BerandaHandler)
 	http.HandleFunc("/profil", handlers.ProfilHandler)
 	http.HandleFunc("/eskul", handlers.EskulHandler)
 	http.HandleFunc("/galeri", handlers.GaleriHandler)
